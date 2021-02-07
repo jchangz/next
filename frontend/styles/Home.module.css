@@ -90,6 +90,7 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
+  pointer-events: none;
 }
 
 .card:hover,
@@ -119,4 +120,16 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.container{
+  position: relative;
+}
+.content{
+  position: absolute;
+  top: 0;
+  min-width: 200px;
+  background: red;
+  min-height: 200px;
+  will-change: transform;
 }
