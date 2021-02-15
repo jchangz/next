@@ -1,23 +1,33 @@
 .close{
     position: fixed;
-    top: 0;
-    right: 0;
-    padding: 1rem;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill:rgba(0, 0, 0, 1);transform:;-ms-filter:'%3E%3Cpath d='M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     z-index: 99;
 }
 
 .content{
     position: absolute;
     top: 0;
-    min-width: 200px;
-    min-height: 200px;
-    height: 200vh;
-    will-change: transform;
     width: 100%;
+    min-width: 200px;
+    height: 200vh;
+    min-height: 200px;
+    will-change: transform;
     overflow: scroll;
+    z-index: 2;
 }
 
 .card {
+    display: flex;
+    align-items: flex-end;
     margin: 1rem;
     flex-basis: 45%;
     padding: 1.5rem;
@@ -38,9 +48,13 @@
     border-color: #0070f3;
 }
 
-.card h3 {
-    margin: 0 0 1rem 0;
-    font-size: 1.5rem;
+.card h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: 'Inter';
+    color: #b9b9b9;
+    letter-spacing: -0.04em;
+    margin: 0;
 }
 
 .card p {
@@ -52,4 +66,29 @@
 .container{
     width: 100%;
     overflow: scroll;
+    padding-top: 3rem;
+}
+
+.hero{
+    z-index: 2;
+    position: relative;
+}
+
+.header{
+    position: fixed;
+    z-index: 2;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    background: #fff;
+    /* box-shadow: inset 0px -1px 0px 0px rgba(0, 112, 243, 0.08); */
+}
+
+.logo{
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.06em;
+}
+
+.blue{
+    color: #0070f3;
 }

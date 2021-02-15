@@ -33,9 +33,11 @@ export default function ImageView({ ...props }) {
     return (
         <>
             <div className={styles.container}
+                style={stateRoute.isRouteOpen ? { overflow: "hidden" } : null}
                 ref={imageContainer} >
                 {springs.map(({ opacity, transform }, i) => (
                     <a.div
+                        className={stateRoute.isRouteOpen && props.selectedImage === i ? styles.hero : null}
                         style={{ transform, opacity }}
                         onClick={selectRoute}
                         data-title={stateRoute.posts[i].slug}
@@ -43,6 +45,7 @@ export default function ImageView({ ...props }) {
                         key={i}>
                         <div className={styles.card}
                             style={{ background: stateRoute.posts[i].hero }}>
+                            {stateRoute.isRouteOpen && props.selectedImage === i ? null : <h2>{stateRoute.posts[i].title}</h2>}
                         </div>
                     </a.div>
                 ))}

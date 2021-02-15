@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import HeaderLayout from './headerLayout'
 import CloseButton from './components/js/closeButton'
 import RouteContent from './components/js/routeContent'
 import ImageView from './components/js/imageView'
@@ -13,6 +14,7 @@ export default function HomeLayout({ children }) {
 
     return (
         <>
+            <HeaderLayout />
             <div className={styles.container} >
                 <ImageView
                     selectedImage={selectedImage}

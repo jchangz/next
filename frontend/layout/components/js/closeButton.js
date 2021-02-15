@@ -5,7 +5,7 @@ import styles from '../Component.module.css'
 
 export default function CloseButton({ ...props }) {
     const router = useRouter()
-    const { dispatchRoute } = useContext(RouteContext);
+    const { stateRoute, dispatchRoute } = useContext(RouteContext);
 
     const close = () => {
         router.push("/")
@@ -15,10 +15,9 @@ export default function CloseButton({ ...props }) {
 
     return (
         <>
-            <button className={styles.close}
-                onClick={close}>
-                Reset
-            </button>
+            {stateRoute.isRouteOpen && stateRoute.isRouteImmediate === false ?
+                <button className={styles.close} onClick={close} />
+                : null}
         </>
     )
 }

@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react'
 import { fetchQuery } from '../../utils'
 import { RouteContext } from "../../context/routeContext"
+import styles from '../../layout/components/Component.module.css'
 
 export default function PostContent({ post }) {
   const { stateRoute, dispatchRoute } = useContext(RouteContext);
@@ -13,6 +14,10 @@ export default function PostContent({ post }) {
 
   return (
     <>
+      {stateRoute.isRouteImmediate ?
+        <div className={styles.card}
+          style={{ background: post.hero }} />
+        : null}
       <h1>{post.title}</h1>
     </>
   )
