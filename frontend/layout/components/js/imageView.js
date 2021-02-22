@@ -1,23 +1,19 @@
-import React, { useContext, useRef } from "react"
+import { useContext, useRef } from 'react'
 import { useSprings, a } from 'react-spring'
-import { useRouter } from 'next/router'
-import { RouteContext } from "../../../context/routeContext"
+import { RouteContext } from '../../../context/routeContext'
+import Link from 'next/link'
 import styles from '../Component.module.css'
 
 export default function ImageView({ ...props }) {
     const { stateRoute, dispatchRoute } = useContext(RouteContext);
-    const router = useRouter()
-    const imageContainer = useRef()
+    const imageList = useRef()
     const imageTransform = useRef()
 
     const selectRoute = (e) => {
         const target = e.target.dataset
-
         const index = parseInt(target.index)
-        const route = target.title
-        imageTransform.current = imageContainer.current.scrollTop - e.target.offsetTop
 
-        router.push(`/posts/${route}`)
+        imageTransform.current = imageList.current.scrollTop - e.target.parentElement.offsetTop
         props.setSelectedImage(index)
         dispatchRoute({ type: 'setRouteOpen' })
     }
@@ -32,24 +28,24 @@ export default function ImageView({ ...props }) {
 
     return (
         <>
-            <div className={styles.container}
+            <ul className={styles.container}
                 style={stateRoute.isRouteOpen ? { overflow: "hidden" } : null}
-                ref={imageContainer} >
+                ref={imageList} >
                 {springs.map(({ opacity, transform }, i) => (
-                    <a.div
+                    <a.li
                         className={stateRoute.isRouteOpen && props.selectedImage === i ? styles.hero : null}
                         style={{ transform, opacity }}
-                        onClick={selectRoute}
-                        data-title={stateRoute.posts[i].slug}
-                        data-index={i}
                         key={i}>
+                        <Link href={`/posts/${stateRoute.posts[i].slug}`}>
+                            <a data-index={i} onClick={selectRoute} />
+                        </Link>
                         <div className={styles.card}
                             style={{ background: stateRoute.posts[i].hero }}>
                             {stateRoute.isRouteOpen && props.selectedImage === i ? null : <h2>{stateRoute.posts[i].title}</h2>}
                         </div>
-                    </a.div>
+                    </a.li>
                 ))}
-            </div>
+            </ul>
         </>
     )
 }

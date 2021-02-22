@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react"
+import { createContext, useReducer } from "react"
 
 export const RouteContext = createContext({});
 
@@ -12,13 +12,22 @@ const routeReducer = (state, action) => {
             return { ...state, isRouteOpen: true, isRouteImmediate: true }
         case 'setRouteClose':
             return { ...state, isRouteOpen: false }
+        case 'setLiveOpen':
+            return { ...state, isLiveOpen: true }
+        case 'setLiveClose':
+            return { ...state, isLiveOpen: false }
         default:
             throw new Error();
     }
 };
 
 export const RouteProvider = (props) => {
-    const initialState = { posts: [], isRouteOpen: false, isRouteImmediate: false }
+    const initialState = {
+        posts: [],
+        isRouteOpen: false,
+        isRouteImmediate: false,
+        isLiveOpen: false
+    }
     const [stateRoute, dispatchRoute] = useReducer(routeReducer, initialState);
 
     const routeContextProps = {

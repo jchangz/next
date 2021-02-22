@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import { useContext } from "react"
 import { useSpring, a } from 'react-spring'
 import { RouteContext } from "../../../context/routeContext"
 import styles from '../Component.module.css'
