@@ -9,6 +9,7 @@ export default function CloseButton({ ...props }) {
     const { stateRoute, dispatchRoute } = useContext(RouteContext);
 
     const close = () => {
+        document.body.style.overflow = 'auto';
         if (stateRoute.isLiveOpen === false) {
             dispatchRoute({ type: 'setRouteClose' })
             props.setSelectedImage(null)
@@ -21,7 +22,7 @@ export default function CloseButton({ ...props }) {
     return (
         <>
             {stateRoute.isRouteOpen && (stateRoute.isRouteImmediate === false || stateRoute.isLiveOpen === true) ?
-                <Link href={stateRoute.isLiveOpen === false ? "/" : `/posts/${router.query.slug}`}>
+                <Link href={stateRoute.isLiveOpen === false ? "/" : `/posts/${router.query.slug}`} scroll={false}>
                     <a onClick={close} className={styles.close} />
                 </Link>
                 : null}

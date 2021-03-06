@@ -12,6 +12,7 @@ export default function Live() {
     // const Hakata = dynamic(() => import('./modules/hakata.js'))
 
     useEffect(() => {
+        document.body.style.overflow = 'hidden';
         dispatchRoute({ type: 'setRouteOpen' })
         dispatchRoute({ type: 'setLiveOpen' })
     }, [])
@@ -24,16 +25,20 @@ export default function Live() {
     const Live = liveRoutes[router.query.slug]
 
     const transitions = useTransition(stateRoute.isLiveOpen && router.query.slug, null, {
-        from: { transform: 'translate3d(0,50%,0) scale(0.5)' },
+        from: { transform: 'translate3d(0,100%,0) scale(1)' },
         enter: { transform: 'translate3d(0,0%,0) scale(1)' },
-        leave: { transform: 'translate3d(0,50%,0) scale(0.5)' },
+        leave: { transform: 'translate3d(0,100%,0) scale(1)' },
     })
 
     return (
         <>
             {transitions.map(({ item, key, props }) => item &&
                 <a.div className={styles.live} style={props} key={key}>
-                    <Live />
+                    {/* <div className={styles.mobileTest}>
+                        <div className={styles.mobileContainer}>
+                            <Live />
+                        </div>
+                    </div> */}
                 </a.div>
             )}
         </>

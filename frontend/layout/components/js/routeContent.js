@@ -9,7 +9,8 @@ export default function RouteContent({ ...props }) {
     const spring = useSpring({
         opacity: stateRoute.isRouteOpen === true ? 1 : 0,
         transform: stateRoute.isRouteOpen === true ? "translateY(0%)" : "translateY(100%)",
-        immediate: stateRoute.isRouteImmediate
+        zIndex: stateRoute.isRouteOpen === true ? "2" : "-1",
+        immediate: true
     })
 
     return (

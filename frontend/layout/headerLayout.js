@@ -12,7 +12,7 @@ export default function HeaderLayout() {
 
     return (
         <>
-            {stateRoute.isLiveOpen ? null :
+            {stateRoute.isLiveOpen || stateRoute.isRouteOpen ? null :
                 <div className={styles.header}
                     style={stateRoute.isRouteImmediate ? { zIndex: "3" } : null}>
                     <Link href="/" >

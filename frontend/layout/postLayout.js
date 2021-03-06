@@ -21,10 +21,8 @@ export default function PostLayout({ post }) {
 
     return (
         <>
-            {stateRoute.isRouteImmediate ?
-                <div className={styles.card}
-                    style={{ background: post.hero }} />
-                : null}
+            <div className={styles.card}
+                style={{ background: post.hero }} />
             {transitions.map(({ item, key, props }) => item &&
                 <a.div style={props} key={key}>
                     <h1>{post.title}</h1>
