@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react'
 import MyLayout from '../layout/homeLayout'
 import { RouteProvider } from '../context/routeContext'

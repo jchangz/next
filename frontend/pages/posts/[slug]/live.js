@@ -1,11 +1,11 @@
 import dynamic from 'next/dynamic'
 
 export default function LivePost() {
-    const Live = dynamic(() => import('../../../live/index'))
+  const Live = dynamic(() => import('../../../live/index'))
 
-    return (
-        <>
-            <Live />
-        </>
-    )
+  return (
+    <>
+      <Live />
+    </>
+  )
 }

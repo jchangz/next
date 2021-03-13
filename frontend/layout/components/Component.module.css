@@ -23,6 +23,14 @@
     z-index: 3;
 }
 
+.container a span {
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    overflow: hidden;
+    top: -10px;
+}
+
 .card {
     position: relative;
     display: flex;
@@ -70,6 +78,14 @@
     z-index: 99;
 }
 
+.close span {
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    overflow: hidden;
+    top: -10px;
+}
+
 .hero{
     z-index: 2;
     position: relative;
@@ -95,11 +111,13 @@
 }
 
 .loading{
-    position: absolute;
-    height: 50%;
+    position: fixed;
+    height: 100%;
     width: 100%;
+    bottom: 0;
     padding: 1rem;
-    top: 300px
+    background: transparent;
+    padding-top: 21rem;
 }
 .loadingTitle {
     position: relative;
@@ -137,4 +155,15 @@
 	100% {
 		transform: translateX(100%)
 	}
+}
+
+.landing{
+    padding: 2rem;
+}
+
+.landing h1 {
+    font-size: 3.2rem;
+    font-weight: 600;
+    font-family: 'Inter';
+    letter-spacing: -0.07em;
 }

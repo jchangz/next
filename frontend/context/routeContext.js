@@ -1,43 +1,45 @@
-import { createContext, useReducer } from "react"
+import { createContext, useReducer } from 'react'
 
-export const RouteContext = createContext({});
+export const RouteContext = createContext({})
 
 const routeReducer = (state, action) => {
-    switch (action.type) {
-        case 'setRoutePosts':
-            return { ...state, posts: action.posts }
-        case 'setRouteOpen':
-            return { ...state, isRouteOpen: true, isRouteImmediate: false }
-        case 'setRouteDirectOpen':
-            return { ...state, isRouteOpen: true, isRouteImmediate: true }
-        case 'setRouteClose':
-            return { ...state, isRouteOpen: false }
-        case 'setLiveOpen':
-            return { ...state, isLiveOpen: true }
-        case 'setLiveClose':
-            return { ...state, isLiveOpen: false }
-        default:
-            throw new Error();
-    }
-};
+  switch (action.type) {
+    case 'setRoutePosts':
+      return { ...state, posts: action.posts }
+    case 'setRouteOpen':
+      return { ...state, isRouteOpen: true, isRouteImmediate: false }
+    case 'setRouteDirectOpen':
+      return { ...state, isRouteOpen: true, isRouteImmediate: true }
+    case 'setRouteClose':
+      return { ...state, isRouteOpen: false }
+    case 'setLiveOpen':
+      return { ...state, isLiveOpen: true }
+    case 'setLiveClose':
+      return { ...state, isLiveOpen: false }
+    default:
+      throw new Error()
+  }
+}
 
 export const RouteProvider = (props) => {
-    const initialState = {
-        posts: [],
-        isRouteOpen: false,
-        isRouteImmediate: false,
-        isLiveOpen: false
-    }
-    const [stateRoute, dispatchRoute] = useReducer(routeReducer, initialState);
+  const { children } = props
 
-    const routeContextProps = {
-        stateRoute,
-        dispatchRoute
-    };
+  const initialState = {
+    posts: [],
+    isRouteOpen: false,
+    isRouteImmediate: false,
+    isLiveOpen: false,
+  }
+  const [stateRoute, dispatchRoute] = useReducer(routeReducer, initialState)
 
-    return (
-        <RouteContext.Provider value={routeContextProps}>
-            {props.children}
-        </RouteContext.Provider>
-    );
-};
+  const routeContextProps = {
+    stateRoute,
+    dispatchRoute,
+  }
+
+  return (
+    <RouteContext.Provider value={routeContextProps}>
+      {children}
+    </RouteContext.Provider>
+  )
+}

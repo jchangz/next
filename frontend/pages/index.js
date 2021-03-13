@@ -1,16 +1,16 @@
 import { useEffect, useContext } from 'react'
 import { fetchQuery } from '../utils'
-import { RouteContext } from "../context/routeContext";
+import { RouteContext } from '../context/routeContext'
 
 export default function Home({ posts }) {
-  const { dispatchRoute } = useContext(RouteContext);
+  const { dispatchRoute } = useContext(RouteContext)
 
   useEffect(() => {
     dispatchRoute({
       type: 'setRoutePosts',
-      posts: posts
+      posts,
     })
-  }, [])
+  }, [dispatchRoute, posts])
 
   return (
     <></>
@@ -20,8 +20,6 @@ export default function Home({ posts }) {
 export async function getStaticProps() {
   const posts = await fetchQuery('posts', null)
   return {
-    props: {
-      posts
-    }
+    props: { posts },
   }
 }
