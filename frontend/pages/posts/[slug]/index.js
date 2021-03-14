@@ -1,12 +1,8 @@
-import dynamic from 'next/dynamic'
 import { fetchQuery } from '../../../utils'
 
-export default function PostContent({ post }) {
-  const PostLayout = dynamic(() => import('../../../layout/postLayout'))
-
+export default function PostContent() {
   return (
     <>
-      <PostLayout post={post} />
     </>
   )
 }

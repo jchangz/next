@@ -11,11 +11,13 @@ const routeReducer = (state, action) => {
     case 'setRouteDirectOpen':
       return { ...state, isRouteOpen: true, isRouteImmediate: true }
     case 'setRouteClose':
-      return { ...state, isRouteOpen: false }
+      return { ...state, isRouteOpen: false, isPostLoaded: false }
     case 'setLiveOpen':
       return { ...state, isLiveOpen: true }
     case 'setLiveClose':
       return { ...state, isLiveOpen: false }
+    case 'setPostLoaded':
+      return { ...state, isPostLoaded: true }
     default:
       throw new Error()
   }
@@ -28,6 +30,7 @@ export const RouteProvider = (props) => {
     posts: [],
     isRouteOpen: false,
     isRouteImmediate: false,
+    isPostLoaded: false,
     isLiveOpen: false,
   }
   const [stateRoute, dispatchRoute] = useReducer(routeReducer, initialState)

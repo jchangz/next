@@ -46,7 +46,21 @@
     pointer-events: none;
     height: 250px;
 }
-
+.card.cardLoading {
+    position: relative;
+    overflow: hidden;
+}
+.card.cardLoading::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: loading-effect 2s infinite;
+    background: linear-gradient( 90deg, #e7e7e9, #fff, #e7e7e9);
+    transform: translateX(-100%);
+}
 .card h2 {
     font-size: 1.3rem;
     font-weight: 600;
@@ -60,6 +74,14 @@
     width: 100%;
     will-change: transform;
     z-index: 2;
+    
+    overflow: hidden;
+    z-index: -1;
+}
+
+.content.active{
+    z-index: 2;
+    min-height:var(--min-height);
 }
 
 .close{
@@ -119,6 +141,15 @@
     background: transparent;
     padding-top: 21rem;
 }
+.loadingCard{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    padding: 1rem;
+    background: transparent;
+    padding-top: 0;
+}
 .loadingTitle {
     position: relative;
     height: 3rem;
@@ -166,4 +197,23 @@
     font-weight: 600;
     font-family: 'Inter';
     letter-spacing: -0.07em;
+}
+
+.livecontainer{
+    position: absolute;
+    width: 100%;
+}
+
+.posAbsolute{
+    position: absolute;
+}
+.posRelative{
+    position: relative;
+}
+.testbg{
+    position: absolute;
+    height: 250px;
+    background: #121211;
+    width: 100%;
+    top: 0;
 }

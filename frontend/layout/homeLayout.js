@@ -14,13 +14,12 @@ export default function HomeLayout({ children }) {
       <HeaderLayout />
       <div className={styles.container}>
         <ImageView
-          routeLoaded={routeLoaded}
           selectedImage={selectedImage}
           setSelectedImage={setSelectedImage}
         />
         <CloseButton />
-        <RouteContent>{children}</RouteContent>
-        <PlaceholderLoad routeLoaded={routeLoaded} />
+        <RouteContent routeLoaded={routeLoaded}>{children}</RouteContent>
+        <PlaceholderLoad />
       </div>
     </>
   )

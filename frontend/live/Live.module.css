@@ -1,16 +1,23 @@
 .live{
-    height: 100%;
+    height: var(--min-height);
     width: 100%;
-    background-color: #121212;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .mobileTest{
-    max-width: 90%;
+    position: relative;
     margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow:0 0 100px -20px rgba(50,50,93,0.5),0 30px 60px -30px rgba(0,0,0,0.3);
+    width: 87vw;
 }
+
 .mobileContainer{
     overflow: scroll;
     position: relative;
     background-color: #fff;
     padding-bottom: 178%;
-    border-radius: 19px;
+    border-radius: 20px;
 }

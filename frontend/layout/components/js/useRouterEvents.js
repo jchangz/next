@@ -23,6 +23,7 @@ export default function useRouterEvents() {
         document.body.style.overflow = 'hidden'
       } else {
         dispatchRoute({ type: 'setRouteOpen' })
+        document.body.style.overflow = 'auto'
       }
     }
     const setLoaded = (url) => {
@@ -30,7 +31,6 @@ export default function useRouterEvents() {
         setRouteLoaded(false)
       } else {
         setRouteLoaded(true)
-        window.scrollTo(0, 0)
       }
     }
 

@@ -7,10 +7,10 @@ import { RouteContext } from '../../../context/routeContext'
 import styles from '../Component.module.css'
 
 export default function ImageView({ ...props }) {
-  const { routeLoaded, selectedImage, setSelectedImage } = props
+  const { selectedImage, setSelectedImage } = props
   const [scrollPositionY, setScrollPositionY] = useState(null)
   const { stateRoute } = useContext(RouteContext)
-  const { isRouteOpen, posts } = stateRoute
+  const { isRouteOpen, isPostLoaded, posts } = stateRoute
   const imageList = useRef()
   const imageTransform = useRef()
 
@@ -58,7 +58,7 @@ export default function ImageView({ ...props }) {
   return (
     <>
       <ul
-        className={routeLoaded && isRouteOpen ? `${styles.container}  ${styles.active}` : `${styles.container}`}
+        className={isPostLoaded ? `${styles.container}  ${styles.active}` : `${styles.container}`}
         ref={imageList}
       >
         {springs.map(({ opacity, transform }, i) => (
